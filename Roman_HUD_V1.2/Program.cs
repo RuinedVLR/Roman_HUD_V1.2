@@ -15,10 +15,12 @@ namespace Roman_HUD_V1._2
         static string currWeapon = "";
         static string hpStatus = "";
         static int fireEffect = 0;
+        static string studioName = "Team Void";
+        static string gameName = "Doomies 64";
         
         static void Main()
         {
-            
+            ShowHUD();
         }
 
         static void ChangeWeapon(int weaponPickedUp)
@@ -122,7 +124,8 @@ namespace Roman_HUD_V1._2
         
         static void ShowHUD()
         {
-
+            Console.WriteLine("{0,20}{1,0}", studioName);
+            Console.WriteLine("{0,20}{1,0}", gameName);
         }
 
 
