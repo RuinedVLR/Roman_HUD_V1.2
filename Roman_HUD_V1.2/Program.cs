@@ -8,8 +8,6 @@ namespace Roman_HUD_V1._2
 {
     internal class Program
     {
-
-        static int weapon = 0;
         static int health = 100;
         static int damage = 5;
         static string currWeapon = "";
