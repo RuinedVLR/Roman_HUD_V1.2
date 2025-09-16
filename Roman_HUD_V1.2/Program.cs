@@ -126,6 +126,8 @@ namespace Roman_HUD_V1._2
         {
             Console.WriteLine("{0,20}{1,0}", studioName);
             Console.WriteLine("{0,20}{1,0}", gameName);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
 
