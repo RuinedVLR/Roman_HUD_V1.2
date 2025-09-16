@@ -20,6 +20,7 @@ namespace Roman_HUD_V1._2
         
         static void Main()
         {
+            ChangeWeapon(2);
             ShowHUD();
         }
 
@@ -117,17 +118,29 @@ namespace Roman_HUD_V1._2
             }
         }
 
-        static void WeaponUsed() //Shows your weapon
+        static string WeaponUsed() //Shows your weapon
         {
-            Console.WriteLine("Your current weapon: " + currWeapon);
+            string result = "";
+            result += "Your current weapon: " + currWeapon;
+            return result;
         }
         
         static void ShowHUD()
         {
-            Console.WriteLine("{0,20}{1,0}", studioName);
-            Console.WriteLine("{0,20}{1,0}", gameName);
+            Console.WriteLine("{0,30}", studioName);
+            Console.WriteLine("{0,30}", gameName);
             Console.WriteLine();
             Console.WriteLine();
+            Console.WriteLine("Enemy HP: ", health);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(WeaponUsed());
+            Console.ReadKey();
+            Console.Clear();
+            DealDamage(damage);
+            Console.WriteLine("Enemy HP is now: " + health);
         }
 
 
