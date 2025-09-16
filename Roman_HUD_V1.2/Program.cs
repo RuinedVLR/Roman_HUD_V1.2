@@ -32,8 +32,6 @@ namespace Roman_HUD_V1._2
             ShowHUD();
             ChangeWeapon(5);
             ShowHUD();
-            ChangeWeapon(3);
-            ShowHUD();
 
         }
 
@@ -138,9 +136,13 @@ namespace Roman_HUD_V1._2
             if(fireEffect > 0)
             {
                 health -= 10;
+                if(health < 0)
+                {
+                    health = 0;
+                }
                 fireEffect--;
                 Console.WriteLine();
-                Console.WriteLine("Enemy is burning! He took 10 damage.");
+                Console.WriteLine($"Enemy is burning for {fireEffect} more turn(s)! He took 10 damage.");
             }
         }
 
@@ -157,11 +159,12 @@ namespace Roman_HUD_V1._2
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Enemy HP: " + health);
-            Console.WriteLine("His health status is: " + hpStatus);
+            Console.WriteLine("His status is: " + hpStatus);
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(WeaponUsed());
+            Console.WriteLine("Next Action  --->");
             Console.ReadKey();
             Console.Clear();
             DealDamage(damage);
@@ -176,9 +179,9 @@ namespace Roman_HUD_V1._2
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(WeaponUsed());
+            Console.WriteLine("Next Action  --->");
             Console.ReadKey();
             Console.Clear();
-            
         }
 
 
