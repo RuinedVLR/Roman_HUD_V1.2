@@ -20,8 +20,21 @@ namespace Roman_HUD_V1._2
         
         static void Main()
         {
+            Console.WriteLine("{0,30}", studioName);
+            Console.WriteLine("{0,30}", gameName);
             ChangeWeapon(2);
             ShowHUD();
+            ChangeWeapon(1);
+            ShowHUD();
+            Heal(60);
+            ShowHUD();
+            ChangeWeapon(4);
+            ShowHUD();
+            ChangeWeapon(5);
+            ShowHUD();
+            ChangeWeapon(3);
+            ShowHUD();
+
         }
 
         static void ChangeWeapon(int weaponPickedUp)
@@ -30,32 +43,43 @@ namespace Roman_HUD_V1._2
             {
                 damage = 5;
                 currWeapon = "Fists";
+                Console.WriteLine($"You picked up {currWeapon}.");
             }
             else if (weaponPickedUp == 1) //pistol
             {
                 damage = 10;
                 currWeapon = "Pistol";
+                Console.WriteLine($"You picked up {currWeapon}.");
             }
             else if (weaponPickedUp == 2) //shotgun
             {
                 damage = 40;
                 currWeapon = "Shotgun";
+                Console.WriteLine($"You picked up {currWeapon}.");
             }
             else if (weaponPickedUp == 3) //machine gun
             {
                 damage = 60;
                 currWeapon = "Machine Gun";
+                Console.WriteLine($"You picked up {currWeapon}.");
             }
             else if (weaponPickedUp == 4) //flamethrower
             {
                 damage = 30;
                 fireEffect = 2;
                 currWeapon = "Flamethrower";
+                Console.WriteLine($"You picked up {currWeapon}.");
             }
-            else //rocketlauncher
+            else if (weaponPickedUp == 5) //rocketlauncher
             {
                 damage = 80;
                 currWeapon = "Rocket Launcher";
+                Console.WriteLine($"You picked up {currWeapon}.");
+            }
+            else
+            {
+                Console.WriteLine("You didn't pick up any weapon.");
+                weaponPickedUp = 0;
             }
 
         }
@@ -72,6 +96,7 @@ namespace Roman_HUD_V1._2
 
         static int Heal(int hp)
         {
+            Console.WriteLine($"Enemy healed for {hp} health.");
             health += hp;
             if(health > 100)
             {
@@ -84,7 +109,7 @@ namespace Roman_HUD_V1._2
         {
             if(health == 0)
             {
-                Console.WriteLine("Enemy is defeated!");
+                hpStatus = "Enemy is defeated!";
             }
             else if(health <= 10)
             {
@@ -114,6 +139,7 @@ namespace Roman_HUD_V1._2
             {
                 health -= 10;
                 fireEffect--;
+                Console.WriteLine();
                 Console.WriteLine("Enemy is burning! He took 10 damage.");
             }
         }
@@ -127,12 +153,11 @@ namespace Roman_HUD_V1._2
         
         static void ShowHUD()
         {
-            Console.WriteLine("{0,30}", studioName);
-            Console.WriteLine("{0,30}", gameName);
+            HealthCheck();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Enemy HP: ", health);
-            Console.WriteLine();
+            Console.WriteLine("Enemy HP: " + health);
+            Console.WriteLine("His health status is: " + hpStatus);
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
@@ -140,8 +165,23 @@ namespace Roman_HUD_V1._2
             Console.ReadKey();
             Console.Clear();
             DealDamage(damage);
+            HealthCheck();
+            Console.WriteLine($"You dealt {damage} damage!");
+            FireCheck();
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Enemy HP is now: " + health);
+            Console.WriteLine("His health status is: " + hpStatus);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(WeaponUsed());
+            Console.ReadKey();
+            Console.Clear();
+            
         }
+
+
 
 
     }
